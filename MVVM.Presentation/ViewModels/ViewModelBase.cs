@@ -2,7 +2,7 @@
 
 namespace MVVM.Presentation.ViewModels;
 
-abstract class ViewModelBase : INotifyPropertyChanged
+class ViewModelBase : INotifyPropertyChanged
 {
     public event PropertyChangedEventHandler? PropertyChanged;
 

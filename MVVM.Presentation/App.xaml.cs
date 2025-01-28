@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using MVVM.Presentation.ViewModels;
+using System.Windows;
 
 namespace MVVM.Presentation
 {
@@ -6,7 +7,12 @@ namespace MVVM.Presentation
     {
         protected override void OnStartup(StartupEventArgs e)
         {
-            new MainWindow().Show();
+            MainWindow = new MainWindow()
+            {
+                DataContext = new MainViewModel()
+            };
+            MainWindow.Show();
+
             base.OnStartup(e);
         }
     }

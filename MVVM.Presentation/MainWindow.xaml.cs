@@ -1,5 +1,4 @@
-﻿using MVVM.Presentation.ViewModels;
-using System.Windows;
+﻿using System.Windows;
 
 namespace MVVM.Presentation
 {
@@ -8,7 +7,6 @@ namespace MVVM.Presentation
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new TitleViewModel();
         }
     }
 }

@@ -16,6 +16,6 @@ class TitleViewModel : ViewModelBase
 
     public TitleViewModel()
     {
-        Title = "HELLO WORLD!";
+        Title = "TITLE";
     }
 }
