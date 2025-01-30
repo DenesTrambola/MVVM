@@ -6,6 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:MVVM.Presentation"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewmodels="clr-namespace:MVVM.Presentation.ViewModels"
     xmlns:views="clr-namespace:MVVM.Presentation.Views"
     Title="MainWindow"
     Width="800"
@@ -16,8 +17,14 @@
             FontSize="30"
             FontWeight="Bold"
             Foreground="Blue"
-            Text="TITLE" />
+            Text="{Binding Header}" />
 
-        <components:MainContent />
+        <components:MainContent DataContext="{Binding MainContentViewModel}" />
+
+        <TextBlock
+            FontSize="30"
+            FontWeight="Bold"
+            Foreground="Blue"
+            Text="{Binding Footer}" />
     </StackPanel>
 </Window>

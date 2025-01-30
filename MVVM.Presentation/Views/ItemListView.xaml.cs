@@ -18,7 +18,7 @@ namespace MVVM.Presentation.Views
     /// <summary>
     /// Interaction logic for ItemListView.xaml
     /// </summary>
-    public partial class ItemListView : Page
+    public partial class ItemListView : UserControl
     {
         public ItemListView()
         {
