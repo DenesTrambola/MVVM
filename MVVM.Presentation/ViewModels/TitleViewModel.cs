@@ -1,8 +1,14 @@
-﻿namespace MVVM.Presentation.ViewModels;
+﻿using MVVM.Presentation.Commands;
+using MVVM.Presentation.State;
+using System.Windows.Input;
+
+namespace MVVM.Presentation.ViewModels;
 
 class TitleViewModel : ViewModelBase
 {
     private string _title;
+
+    private readonly MainContentNavigationStore _mainContentNavigationStore;
 
     public string Title
     {
@@ -14,8 +20,13 @@ class TitleViewModel : ViewModelBase
         }
     }
 
-    public TitleViewModel()
+    public ICommand NavigateItemListCommand { get; }
+
+    public TitleViewModel(MainContentNavigationStore mainContentNavigationStore)
     {
         Title = "TITLE";
+
+        _mainContentNavigationStore = mainContentNavigationStore;
+        NavigateItemListCommand = new NavigateItemListCommand(_mainContentNavigationStore);
     }
 }

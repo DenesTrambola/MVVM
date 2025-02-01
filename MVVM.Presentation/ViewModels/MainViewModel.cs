@@ -1,8 +1,11 @@
-﻿namespace MVVM.Presentation.ViewModels;
+﻿using MVVM.Presentation.State;
+
+namespace MVVM.Presentation.ViewModels;
 
 class MainViewModel : ViewModelBase
 {
-    public ViewModelBase MainContentViewModel { get; private set; }
+    private readonly MainContentNavigationStore _mainContentNavigationStore;
+    public ViewModelBase MainContentViewModel => _mainContentNavigationStore.CurrentViewModel;
 
     private string _header;
 
@@ -29,11 +32,17 @@ class MainViewModel : ViewModelBase
     }
 
 
-    public MainViewModel()
+    public MainViewModel(MainContentNavigationStore mainContentNavigationStore)
     {
         Header = "HEADER";
         Footer = "FOOTER";
 
-        MainContentViewModel = new TitleViewModel();
+        _mainContentNavigationStore = mainContentNavigationStore;
+        _mainContentNavigationStore.CurrentViewModelChanged += OnMainContentViewModelChanged;
+    }
+
+    private void OnMainContentViewModelChanged()
+    {
+        OnPropertyChanged(nameof(MainContentViewModel));
     }
 }

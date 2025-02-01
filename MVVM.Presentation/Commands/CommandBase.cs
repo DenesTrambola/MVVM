@@ -2,7 +2,7 @@
 
 namespace MVVM.Presentation.Commands;
 
-public abstract class BaseCommand : ICommand
+public abstract class CommandBase : ICommand
 {
     public event EventHandler? CanExecuteChanged;
 
