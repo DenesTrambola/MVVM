@@ -27,6 +27,8 @@ class TitleViewModel : ViewModelBase
         Title = "TITLE";
 
         _mainContentNavigationStore = mainContentNavigationStore;
-        NavigateItemListCommand = new NavigateItemListCommand(_mainContentNavigationStore);
+
+        NavigateItemListCommand = new NavigateCommand<ItemListViewModel>(_mainContentNavigationStore,
+            () => new ItemListViewModel(_mainContentNavigationStore));
     }
 }

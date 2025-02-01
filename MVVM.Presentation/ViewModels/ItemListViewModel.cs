@@ -12,6 +12,8 @@ class ItemListViewModel : ViewModelBase
     public ItemListViewModel(MainContentNavigationStore mainContentNavigationStore)
     {
         _mainContentNavigationStore = mainContentNavigationStore;
-        NavigateTitleCommand = new NavigateTitleCommand(_mainContentNavigationStore);
+
+        NavigateTitleCommand = new NavigateCommand<TitleViewModel>(_mainContentNavigationStore,
+            () => new TitleViewModel(_mainContentNavigationStore));
     }
 }
