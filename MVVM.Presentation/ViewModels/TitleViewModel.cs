@@ -7,9 +7,6 @@ namespace MVVM.Presentation.ViewModels;
 class TitleViewModel : ViewModelBase
 {
     private string _title;
-
-    private readonly MainContentNavigationStore _mainContentNavigationStore;
-
     public string Title
     {
         get { return _title; }
@@ -26,9 +23,7 @@ class TitleViewModel : ViewModelBase
     {
         Title = "TITLE";
 
-        _mainContentNavigationStore = mainContentNavigationStore;
-
-        NavigateItemListCommand = new NavigateCommand<ItemListViewModel>(_mainContentNavigationStore,
-            () => new ItemListViewModel(_mainContentNavigationStore));
+        NavigateItemListCommand = new NavigateCommand<ItemListViewModel>(new(mainContentNavigationStore,
+            () => new ItemListViewModel(mainContentNavigationStore)));
     }
 }

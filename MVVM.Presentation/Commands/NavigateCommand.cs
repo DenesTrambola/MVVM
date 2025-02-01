@@ -1,4 +1,4 @@
-﻿using MVVM.Presentation.State;
+﻿using MVVM.Presentation.Services;
 using MVVM.Presentation.ViewModels;
 
 namespace MVVM.Presentation.Commands;
@@ -6,17 +6,11 @@ namespace MVVM.Presentation.Commands;
 public class NavigateCommand<TViewModel> : CommandBase
     where TViewModel : ViewModelBase
 {
-    private readonly MainContentNavigationStore _mainContentNavigationStore;
-    private readonly Func<TViewModel> _createViewModel;
+    private readonly NavigationService<TViewModel> _navigationService;
 
-    public NavigateCommand(MainContentNavigationStore mainContentNavigationStore, Func<TViewModel> createViewModel)
-    {
-        _mainContentNavigationStore = mainContentNavigationStore;
-        _createViewModel = createViewModel;
-    }
+    public NavigateCommand(NavigationService<TViewModel> navigationService) =>
+        _navigationService = navigationService;
 
-    public override void Execute(object? parameter)
-    {
-        _mainContentNavigationStore.CurrentViewModel = _createViewModel();
-    }
+    public override void Execute(object? parameter) =>
+        _navigationService.Navigate();
 }
