@@ -10,5 +10,15 @@
     mc:Ignorable="d">
     <Grid>
         <TextBlock FontSize="30" Text="ITEM LISTING" />
+
+        <Button
+            Width="150"
+            Height="80"
+            Background="Yellow"
+            Command="{Binding NavigateTitleCommand}"
+            Content="TITLE"
+            FontSize="30"
+            FontWeight="Bold"
+            Foreground="Blue" />
     </Grid>
 </UserControl>
